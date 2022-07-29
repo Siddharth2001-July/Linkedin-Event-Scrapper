@@ -17,11 +17,11 @@ var scrappedData = {
 }
 
 //Function to download extracted data as JSON File
-function exportToJsonFile(jsonData) {
+function exportToJsonFile(jsonData, fileName) {
     let dataStr = JSON.stringify(jsonData);
     let dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
 
-    let exportFileDefaultName = 'Event_' + scrappedData.event_id + '.json';
+    let exportFileDefaultName = fileName + '.json';
 
     let linkElement = document.createElement('a');
     linkElement.setAttribute('href', dataUri);
@@ -162,7 +162,7 @@ async function scrapper(toScrape) {
     await scrappedData.members.shift();
     await membersScrapped();
     // await console.log(scrappedData);
-    await exportToJsonFile(scrappedData);
+    await exportToJsonFile(scrappedData, scrappedData.event_name);
 }
 
 // Reload on opening extension
@@ -204,7 +204,5 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
-
-// scrapper(5)
 
 console.log("Running...");

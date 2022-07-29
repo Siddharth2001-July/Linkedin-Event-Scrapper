@@ -1,17 +1,20 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "LinkedIn Event Scrapper",
-    "version": "1.0.0",
+    "version": "0.0.5",
     "description": "Extension for scrapping members of a event on LinkedIn",
     "permissions": [
         "storage",
         "tabs",
-        "https://*.linkedin.com/*",
-        "https://www.linkedin.com/search/results/people/?eventAttending=%5B%*",
         "webRequest",
+        "webNavigation"
+    ],
+    "host_permissions": [
         "https://cdn.jsdelivr.net/*",
         "https://static-exp1.licdn.com/*",
-        "webNavigation"
+        "https://*.linkedin.com/*",
+        "https://www.linkedin.com/search/results/people/?eventAttending=%5B%*",
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     ],
     "content_scripts": [
         {
@@ -25,12 +28,14 @@
         }
     ],
     "background": {
-        "scripts": [
-            "scripts/background.js"
-        ]
+        "service_worker": "scripts/background.js"
     },
-    "browser_action": {
+    "action": {
+        "default_icon": {
+            "16": "assests/LinkedIn.png",
+            "32": "assests/LinkedIn.png"
+        },
         "default_popup": "index.html",
-        "default_title": "Get LinkedIn Event Attendees"
+        "default_title": "LinkedIn Event Scrapper"
     }
 }
