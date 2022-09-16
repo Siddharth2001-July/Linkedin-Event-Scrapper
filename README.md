@@ -8,5 +8,4 @@ Hello reader,
  3. Click 'LOAD UNPACKED EXTENSIONS'or something similar after Step 2
  4. Navigate inside the directory containing 'manifest.json' file and select folder.
  
- #Contact
-  If you face any bug or errors PLEASE remember to mention them in repository issues.
+ #If you face any bug or errors PLEASE remember to mention them in repository issues.
